@@ -6,7 +6,7 @@ class Projectile {
         this.radius = 3
     }
 
-    draw() {
+    drawProjectile() {
         c.beginPath();
         c.arc(this.position.x, this.position.y, this.radius, 0, Math.PI * 2);
         c.fillStyle = 'red'
@@ -14,8 +14,8 @@ class Projectile {
         c.closePath();
     }
 
-    update() {
-        this.draw()
+    updateProjectile() {
+        this.drawProjectile()
         this.position.x += this.velocity.x
         this.position.y += this.velocity.y
     }

@@ -31,7 +31,7 @@ function animate() {
     c.fillRect(0, 0, canvas.width, canvas.height)
     player.update()
     projectiles.forEach((projectile) => {
-        projectile.update()
+        projectile.updateProjectile()
     })
 
     if (keys.a.pressed && player.position.x >= 0) {
