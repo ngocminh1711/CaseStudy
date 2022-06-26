@@ -146,8 +146,8 @@ class Grid {
 
         this.width = columns * 30
 
-        for (var x = 0; x < columns;x++) {
-            for (var y = 0; y < rows; y++) {
+        for (let x = 0; x < columns;x++) {
+            for (let y = 0; y < rows; y++) {
 
                 this.invaders.push(new Invader({
                         position: {
@@ -159,7 +159,7 @@ class Grid {
                 )
             }
         }
-        console.log(this.invaders)
+        // console.log(this.invaders)
     }
     update() {
      this.position.x += this.velocity.x
@@ -190,7 +190,8 @@ let keys = {
     }
 }
 
-
+let frames = 0
+let randomInterval = Math.floor(Math.random() * 500  +500)
 function animate() {
     requestAnimationFrame(animate)
     c.fillStyle = 'black'
@@ -223,8 +224,15 @@ function animate() {
         player.velocity.x = 0
         player.rotation = 0
     }
+    //spawning enimies
+    if(frames % randomInterval === 0){
+        grids.push(new Grid())
+        Math.floor(Math.random() * 500  +500)
+        frames = 0
 }
-
+    frames++;
+    console.log(randomInterval)
+  }
 
 animate()
 
@@ -232,7 +240,7 @@ addEventListener('keydown', ({key}) => {
     switch (key) {
         case 'a':
             keys.a.pressed = true
-            console.log('left')
+            // console.log('left')
             break
         case 'd':
             keys.d.pressed = true
@@ -249,7 +257,7 @@ addEventListener('keydown', ({key}) => {
                 }
             }))
 
-            console.log(projectiles)
+            // console.log(projectiles)
             break
     }
 })
