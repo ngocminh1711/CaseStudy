@@ -1,4 +1,4 @@
-const canvas = document.querySelector('canvas');
+const canvas = document.getElementById('canvas');
 const c = canvas.getContext('2d');
 let scoreUp = document.getElementById('scoreUp')
 console.log(canvas)
@@ -294,6 +294,7 @@ function animate() {
             game.over = true
             setTimeout(() => {
                 game.active = false
+                document.getElementById("setlose").innerHTML = "You lose <br> please press F5 to replay. "
             }, 2000)
             createParicles({
                 object: player,
